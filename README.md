@@ -6,7 +6,7 @@ to use it.
 
 kt-jda-annot gives you the ability to transform a kotlin function into a typed command with various features.
 
-###Usage
+## Explanations
 
 ```kotlin
 
