@@ -65,7 +65,7 @@ val functions = getAllFunctionCommandWithinPackage("org.flower", jda, USED_C_TYP
 // USED_C_TYPES is the used command types
 // jda is the classic JDA instance
 ```
-The library obviously let you create types that does not exist by default.
+The library obviously lets you create types that does not exist by default.
 For example let's say you have a class `Potato` and you want that a command can use the type `Potato` in its signature.
 You can change USED_C_TYPES by adding AT THE BEGGINING an instance of CType<Potato>. It could be like:
   
