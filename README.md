@@ -37,7 +37,7 @@ fun predicate(event: TypedCommandCallEvent, number: Named<Int> = Named("", 1)){
 The above create a command with signature \[Named\<Int\>\]: on discord it will mean that this will call it: (with f% as prefix)
   `f%ping` or `f%ping --nb_of_messages 2`
   
-If using a default exception handler, you can send a message that `--nb_of_messages` has wrong type:
+If using a default exception handler, you can send a message that `--nb_of_messages` has a wrong type:
 
 ```kotlin
 @FlowerException(id = "NULL")
@@ -81,13 +81,15 @@ val C_POTATO = newCType{ event, index ->
 }
 ```
   
-If you also want to add a C_NAMED_POTATO you can use `parseCNamedT` to directly used C_POTATO. The named version is the version with 
+If you also want to add a C_NAMED_POTATO you can use `parseCNamedT` to directly use C_POTATO. The named version is the version with 
 a flag, if you want to be able to do `--random_name potato`.
 
 C_POTATO does not need to increment the index of the arguments because, each argument is a String and C_STRING will always add one to the index.
-Therefore if you put C_POTATO at the end of USED_C_TYPES, it's like C_POTATO is not in the list.
+Therefore if you put C_POTATO at the end of USED_C_TYPES, C_POTATO will never be parsed.
     
-Although it is hard to understand at first, if the time is taken to understand the project deeper, it is easily maintainable. It can be used to create huge bots, with no effort, for typing commands arguments. It can help you directly use a tool to do a bot.
+Although it is hard to understand at first, if time is taken to understand the project deeper, it is easily maintainable. It can be used to create huge bots, with no effort, for typing commands arguments. It can help you directly use a tool to do a bot.
     
 See example:
-    [huge](https://github.com/Loatchi/kt-jda-annot/blob/master/src/example/kotlin/org/flower/example/Huge.kt)
+    [huge](https://github.com/Loatchi/kt-jda-annot/blob/master/src/example/kotlin/org/flower/example/Huge.kt):
+
+![alt text](https://github.com/Loatchi/kt-jda-annot/blob/master/example.png)
