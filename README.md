@@ -13,7 +13,7 @@ kt-jda-annot gives you the ability to transform a kotlin function into a typed c
 @FlowerCommand(id = "PING_ID") //supposing you created a json-file that you will give when creating discord commands
 fun ping(event: TypedCommandCallEvent, @FlowerNamed(["nb_of_messages"]) number: Named<Int> = Named("", 1) ){
 
-    // we know for sure that number.value is a valid candidate, not need to verify
+    // we know for sure that number.value is a valid candidate, no need to verify
 
     for(unused in 0 until number.value){
         event.message.reply("pong !").queue() 
