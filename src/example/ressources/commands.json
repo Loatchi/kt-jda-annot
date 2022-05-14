@@ -1,0 +1,273 @@
+{
+
+  "prefix": "f%",
+
+  "SETTINGS": {
+    "name": "settings",
+    "aliases": ["settings"],
+    "help": "Mappe une clé et une valeur. Ces valeurs et ces clés peuvent être utilisées pour servir de paramètres par défaut. Elles peuvent aussi servir à changer le comportement de l'interpréteur.",
+    "botRunnable": false,
+    "example": "Pour mettre la valeur `pomme` de clé `test` dans le champs `citrouille`:\n`f%settings citrouille test **pomme**`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "La commande `alias` est une utilisation cachée de cette commande."
+  },
+
+  "SETTINGS_SAVE": {
+    "name": "settings_save",
+    "aliases": ["save"],
+    "help": "Sauvegarde les paramètres. Par défaut l'interpréteur ne sauvegarde pas à chaque appel de settings.",
+    "botRunnable": false,
+    "example": "`f%settings save`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": ""
+  },
+
+  "SETTINGS_CLEAN": {
+    "name": "settings_clean",
+    "aliases": ["clean"],
+    "help": "Supprime tous les paramètres inutiles. SUPPRIME LES ALIAS AUSSI PAR DEFAUT !",
+    "botRunnable": false,
+    "example": "Si vous avez le paramètre `jdiejr` dans `continent` ; il est inutile. Ainsi `f%settings clean` le supprimera.\nPour préserver les alias:\n`f%settings clean --keep-aliases`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "",
+    "flags": {
+      "keep-aliases": "Garde les alias"
+    }
+  },
+
+  "SETTINGS_RESET": {
+    "name": "settings_reset",
+    "aliases": ["reset"],
+    "help": "Supprime les paramètres et restaure ceux par défaut.",
+    "botRunnable": false,
+    "example": "TODO",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": ""
+  },
+
+  "SETTINGS_PRINT": {
+    "name": "settings_print",
+    "aliases": ["print"],
+    "help": "Affiche vos paramètres sous la forme d'un arbre.",
+    "botRunnable": false,
+    "example": "Plein de variantes existent:\n`f%settings print alias`\n`f%settings print alias ALIAS_QUELCONQUE`\n`f%settings print`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "",
+    "flags": {
+      "strip": "Raccourcis les valeurs trop longues ; permet de maintenir de la lisibilité"
+    }
+  },
+
+  "SETTINGS_REMOVE": {
+    "name": "settings_remove",
+    "aliases": ["remove"],
+    "help": "Supprime un paramètre donné.",
+    "botRunnable": false,
+    "example": "`f%settings remove alias ALIAS_QUELCONQUE`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "TODO"
+  },
+
+  "HUGE": {
+    "name": "huge",
+    "aliases": ["huge"],
+    "help": "Affiche un texte en énorme. Caractères autorisés:\n{abcdefghijklmnopqrstuvwxyz?./:;!,%*$^1234567890#[]()-_ '}\n *Les majuscules et les accents n'ont aucun impact sur le message*",
+    "botRunnable": false,
+    "example": "`f%huge {hi my name is paul !} --txt`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "",
+    "flags": {
+      "txt": "Ecrit le message dans un fichier texte et l'envoie",
+      "color": "La couleur du message: [`white`, `red`, `cyan`, `yellow`, `pink`, `blue`, `green`, `null`]",
+      "background": "La couleur du fond: [`white`, `orange`, `gray`, `black`, `purple`, `null`]"
+    }
+  },
+
+  "HELP": {
+    "name": "help",
+    "aliases": ["help"],
+    "help": "Affiche le message d'aide d'une commande. Il est certainement plus pratique d'utiliser directement `--help` avec une commande.",
+    "botRunnable": false,
+    "example": "Pour avoir le message d'aide de `continent`:\n`f%help continent` ou `f%continent --help`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": ""
+  },
+
+  "DOWNLOAD": {
+    "name": "download",
+    "aliases": ["download"],
+    "help": "Télécharge un ficher multimédia depuis un lien. Cette commande peut-être instable.\nIl ne peut pas avoir plusieurs appels concurrents pour cette commande.",
+    "botRunnable": false,
+    "example": "`f%download https://www.youtube.com/watch?v=oe443Gl4Skk --format audio --start 30 --finish 60 --name {we_are_the_robots}`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "Pour les sites qui sont sensés être supportés: https://github.com/ytdl-org/youtube-dl/blob/master/docs/supportedsites.md",
+    "flags": {
+      "format": "Le format du résultat: `video` ou `audio`. Tout autre argument lève une exception.",
+      "name": "Le nom du fichier résultat",
+      "start": "Quand un extrait commence (rien=début_du_fichier)",
+      "finish": "Quand un extrait termine (rien=fin_du_ficher)",
+      "verbosity": "Valeurs autorisées: `clear`(le robot envoie un message et le supprime 10 sec après) et `mute`(aucun message)",
+      "spoiler": "Mets le fichier multimédia en spoiler"
+    }
+  },
+
+  "CONTINENT": {
+    "name": "continent",
+    "aliases": ["continent"],
+    "help": "Crée un continent. Un continent est une longue chaine de caractères utilisée pour envoyer de gros pavés dans un salon textuel.",
+    "botRunnable": false,
+    "example": "Pour avoir un continent avec un titre `TITRE`, un fermeur `FERMEUR` et une indentation `->TEST<-`:\n`f%continent --closer {FERMEUR} --indentation [->TEST<-] --opener \"TITRE\"",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "TODO",
+    "flags": {
+      "size": "Le nombre de lignes du continent (sans compter l'ouvreur et le fermeur)",
+      "recursive": "Le nombre de continents qui sera crée",
+      "opener": "L'ouvreur du continent (1ere ligne)",
+      "closer": "Le fermeur du continent (dernière ligne)",
+      "indentation": "L'indentation, le chaine qui sera affichée entre l'ouvreur et le fermeur.",
+      "pipe": "Le salon textuel vers lequel redirigé le continent"
+    }
+  },
+
+  "ALIAS": {
+    "name": "alias",
+    "aliases": ["alias"],
+    "help": "Crée un alias pour executer des commandes.",
+    "botRunnable": false,
+    "example": "$PREFIX$alias faster_foo {f%foo --string string --double 3.141592}\nQuand appelé`f%faster_foo ...` devient `f%foo --string string --double 3.141592 ...`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": ""
+  },
+
+  "TYPES": {
+    "name": "types",
+    "aliases": ["types"],
+    "help": "Affiche les types supportés par l'interpréteur et leurs significations.",
+    "botRunnable": false,
+    "example": "Pour avoir des informations sur le type `Long`:\n`f%types Long`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "",
+
+    "long": "Représente un nombre entier tel que `32384398` ou `3141592`.",
+    "double": "Représente un nombre à virgule tel que `3.141592` ou `2.718`.",
+    "url": "Représente un URL tel que `https://www.youtube.com/watch?v=dQw4w9WgXcQ`.",
+    "commandpath": "Représente le chemin d'accès vers une commande. Il s'écrit avec `->` comme séparateur entre les commandes.\nExemple: `->foo->innerfoo` est le chemin d'accès vers la sous-commande `innerfoo` de `foo`.",
+    "member": "Représente un membre tel que <@123456890> (c'est la manière canonique pour écrire un membre).",
+    "textchannel": "Représente un salon textuel tel que <#12345> (c'est la manière canonique de se référer à un salon textuel).",
+    "quote": "Une chaine de caractères séparée par des caractères spéciaux tel que `\"hi\"` ou `{a string here}`. Quote permet de mettre espaces. La liste des caractères spéciaux pour encadrer la chaine:\n",
+    "string": "Une chaine de caractères tel que `hi` or `potato`. Par définition de comment fonctionne l'interpréteur elle ne peut pas contenir ."
+  },
+
+  "MODE": {
+    "name": "mode",
+    "aliases": ["mode"],
+    "help": "Active un mode donné.",
+    "botRunnable": true,
+    "example": "f%mode ENT",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "https://www.internet-signalement.gouv.fr/PharosS1/"
+  },
+
+  "MODE_CREATE": {
+    "name": "create",
+    "aliases": ["create"],
+    "help": "Crée un mode.",
+    "botRunnable": true,
+    "example": "$PREFIX$mode create {Pomme de terre $$MODE$$ de $$AUTHOR$$ crée}",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": ""
+  },
+
+  "MODE_LIST": {
+    "name": "list",
+    "aliases": ["list"],
+    "help": "Affiche les modes.",
+    "botRunnable": false,
+    "example": "`f%mode list`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": ""
+  },
+
+  "QURAN": {
+    "name": "quran",
+    "aliases": ["quran"],
+    "help": "Permet d'interroger les paroles incrées d'Allah.",
+    "botRunnable": false,
+    "example": "Pour récupérer le 1er verset de la 3ème sourate:\n`f%quran 3 1`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": ""
+  },
+
+  "SEND": {
+    "name": "send",
+    "aliases": ["send"],
+    "help": "Envoie un message.",
+    "botRunnable": false,
+    "example": "Pour envoyer `salut les amis !`:\n`f%send \"salut les amis !\"",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "",
+    "flags": {
+      "pipe": "Le salon textuel vers lequel redirigé le message."
+    }
+  },
+
+  "WIKI": {
+    "name": "wiki",
+    "aliases": ["wiki"],
+    "help": "Envoie le message d'introduction du bot.",
+    "botRunnable": true,
+    "example": "`f%wiki`",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": ""
+  },
+
+  "MUSIC": {
+    "name": "music",
+    "aliases": ["music"],
+    "help": "TODO",
+    "botRunnable": false,
+    "example": "TODO",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "TODO"
+  },
+
+  "MUSIC_QUEUE": {
+    "name": "queue",
+    "aliases": ["queue"],
+    "help": "TODO",
+    "botRunnable": false,
+    "example": "TODO",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "TODO"
+  },
+
+  "MUSIC_SHUFFLE": {
+    "name": "shuffle",
+    "aliases": ["shuffle"],
+    "help": "TODO",
+    "botRunnable": false,
+    "example": "TODO",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "TODO"
+  },
+
+  "MUSIC_NEXT": {
+    "name": "next",
+    "aliases": ["next"],
+    "help": "TODO",
+    "botRunnable": false,
+    "example": "TODO",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "TODO"
+  },
+
+  "MUSIC_LOOP": {
+    "name": "loop",
+    "aliases": ["loop"],
+    "help": "TODO",
+    "botRunnable": false,
+    "example": "TODO",
+    "usableGlobalFlags": ["AUTO_DELETE", "HELP"],
+    "see": "TODO"
+  }
+}
