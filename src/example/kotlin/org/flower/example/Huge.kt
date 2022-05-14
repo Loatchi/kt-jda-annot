@@ -9,7 +9,6 @@ import org.flower.commands.events.TypedCommandCallEvent
 import org.flower.types.Named
 import org.flower.types.Quote
 import java.io.File
-import java.io.FileReader
 import java.io.FileWriter
 import java.io.InputStreamReader
 import java.text.Normalizer
@@ -167,24 +166,24 @@ fun hugePredicate(event: TypedCommandCallEvent,
     val a = quote.message.length in 1..50
 
     if(color.value.lowercase() !in listOf("white", "red", "cyan", "yellow", "pink", "blue", "green", "null")){
-        event.message.reply("Couleur (front) non supportée: `${color.value}`").queue()
+        event.message.reply("Color (front) not supported: `${color.value}`").queue()
         return false
     }
 
     if(background.value.lowercase() !in listOf("white", "orange", "gray", "black", "purple", "null")){
-        event.message.reply("Couleur (back) non supportée: `${color.value}`").queue()
+        event.message.reply("Color (back) not supported: `${color.value}`").queue()
         return false
     }
 
     if(!a && !txt.value){
-        event.message.reply("Il faut une chaine de caractères de longueur L: 1 <= L <= 50").queue()
+        event.message.reply("Need a string of length L: 1 <= L <= 50").queue()
         return false
     }
 
     val illegalCharIdx = quote.message.indexOfFirst { it !in AUTHORIZED_CHARS }
 
     if(illegalCharIdx != -1){
-        val opener = "Caractère interdit: "
+        val opener = "Illegal character: "
         val start = original.substring(0, illegalCharIdx)
         val badChar = original[illegalCharIdx]
         val end = original.substring(illegalCharIdx + 1)
