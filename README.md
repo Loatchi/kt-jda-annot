@@ -90,6 +90,6 @@ Therefore if you put C_POTATO at the end of USED_C_TYPES, C_POTATO will never be
 Although it is hard to understand at first, if time is taken to understand the project deeper, it is easily maintainable. It can be used to create huge bots, with no effort, for typing commands arguments. It can help you directly use a tool to do a bot.
     
 See example:
-    [huge](https://github.com/Loatchi/kt-jda-annot/blob/master/src/example/kotlin/org/flower/example/Huge.kt):
+    [huge](https://github.com/Loatchi/kt-jda-annot/blob/master/src/example/kotlin/org/flower/example/Huge.kt) or [send](https://github.com/Loatchi/kt-jda-annot/blob/master/src/example/kotlin/org/flower/example/Send.kt):
 
 ![alt text](https://github.com/Loatchi/kt-jda-annot/blob/master/example.png)
